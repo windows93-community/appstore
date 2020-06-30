@@ -2,7 +2,7 @@
 <html>
   <head>
     <title> AppStore93 </title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./res/style.css">
   </head>
   <body>
     <div id="navbar">

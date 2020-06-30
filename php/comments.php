@@ -1,4 +1,3 @@
-<?php include "mysql.php" ?>
     <div id="main_container">
       <div id="post_comment">
         <form action="send.php" method="post" id="post_form">
@@ -18,7 +17,7 @@
         else while($row = $result->fetch_assoc()) {
       ?>
       <div class="comment">
-        <img src="./pfp.png" class="comment_pfp">
+        <img src="./res/pfp.png" class="comment_pfp">
         <div class="comment_data">
           <span class="name"> <?php echo htmlentities($row["name"]) ?> </span><br>
           <span class="date"> <?php echo htmlentities($row["date"]) ?> </span>
