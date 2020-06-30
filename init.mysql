@@ -1,0 +1,19 @@
+CREATE TABLE comments (
+  id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  csid int NOT NULL,
+  name varchar(255) NOT NULL,
+  date DATETIME,
+  content TEXT
+);
+
+CREATE TABLE apps (
+  id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  title varchar(255) NOT NULL,
+  date DATETIME,
+  description TEXT,
+  installer MEDIUMTEXT,
+  upvote int,
+  downvote int
+);
+
+CREATE INDEX ind ON comments(csid);
