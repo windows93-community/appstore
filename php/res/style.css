@@ -19,11 +19,15 @@
   background-color: #DDD;
 }
 
+img { 
+    image-rendering: pixelated;
+}
+
 input[type="submit"], button {
   font: 16px dfont;
   border: 2px outset;
   background-color: #CCC;
-  outline: none;
+  outline: 1px solid;
 }
 input[type="submit"]:hover, button:hover {
   background-color: #DDD;

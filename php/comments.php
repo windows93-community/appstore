@@ -2,7 +2,7 @@
       <div id="post_comment">
         <form action="send.php" method="post" id="post_form">
           <input type="hidden" name="id" value="<?php echo $_GET["id"] ?>">
-          Your name: <input type="text" name="user"> <input type="submit" value="Submit">
+          Your name: <input type="text" name="user"> <button type="submit"> Submit </button>
         </form>
         <textarea rows="10" cols="60" name="content" form="post_form">Comment goes here...</textarea>
       </div>
@@ -16,7 +16,7 @@
 
         else while($row = $result->fetch_assoc()) {
       ?>
-      <div class="comment">
+      <div class="comment" internal_id="<?php echo $row['id'] ?>">
         <img src="./res/pfp.png" class="comment_pfp">
         <div class="comment_data">
           <span class="name"> <?php echo htmlentities($row["name"]) ?> </span><br>

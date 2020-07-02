@@ -8,12 +8,22 @@ CREATE TABLE comments (
 
 CREATE TABLE apps (
   id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  title varchar(255) NOT NULL,
+  title varchar(255) NOT NULL UNIQUE,
+  cathegory varchar(255) NOT NULL,
+  author varchar(255) NOT NULL,
+  icon varchar(255),
   date DATETIME,
   description TEXT,
   installer MEDIUMTEXT,
   upvote int,
   downvote int
+);
+
+CREATE TABLE users (
+  id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  name varchar(255) NOT NULL UNIQUE,
+  passhash varchar(255) NOT NULL,
+  email varchar(255) NOT NULL UNIQUE
 );
 
 CREATE INDEX ind ON comments(csid);

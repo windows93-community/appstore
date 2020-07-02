@@ -11,24 +11,28 @@
       <table class="app_data">
         <tr>
           <th class="app_img">
-            <img src="<?php echo $row["icon"] ?>" width="100" height="100"> <br> <br>
-             <a href="data:application/octet-stream;charset=utf-16le;base64,<?php echo base64_encode($row["installer"]); ?>" download="<?php echo $row['title'] ?>_installer.js"><button> Install </button></a>
+            <img src="<?php echo str_replace('"', '', $row["icon"]) ?>" width="100" height="100"> <br> <br>
+            <a href="data:application/octet-stream;charset=utf-16le;base64,<?php echo base64_encode($row["installer"]); ?>" download="<?php echo htmlentities($row['title']) ?>_installer.js"><button> Install </button></a>
+            <button style="margin-top: 5px;"> Report&nbsp; </button>
           </th>
           <th class="app_desc">
-            <div style="margin-bottom: 50px;"></div>
             <div class="app_cell">
-              <h2> <?php echo $row["title"] ?> </h2>
+              <h2 style="margin-bottom: 2px;"> <?php echo htmlentities($row["title"]) ?> </h2>
               <hr>
               <strong> Description </strong>
-              <p> <?php echo $row["description"] ?> </p>
-              <strong> Cathegory </strong>
-              <p> Other </p>
+              <p> <?php echo htmlentities($row["description"]) ?> </p>
+	      <strong> Author </strong>
+	      <p> <?php echo htmlentities($row["author"])?> </p>
+	      <strong> Cathegory </strong>
+	      <p> <?php echo htmlentities($row["cathegory"])?> </p>
+	      <strong> Uploaded on </strong> <span style="color: blue"> <?php echo $row["date"] ?> </span>
+	      <hr>
             </div>
           </th>
         </tr>
       </table>
       <center>
-        <h1> Comments </h1>
+        <h2> Comments </h2>
       </center>
     </div>
     <?php include "comments.php" ?>
