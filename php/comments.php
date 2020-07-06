@@ -10,11 +10,16 @@
       <?php
       if(is_numeric($_GET["id"])) {
 
-        $result = $conn->query("SELECT id, csid, name, date, content FROM comments WHERE csid = " . $_GET["id"] . " ORDER BY date DESC;");
+	$section = $conn->query('SELECT id FROM apps WHERE id = ' . $_GET['id']);
+	if(!$section || $section->num_rows == 0) {
+		echo "<center><h3>Could not load comments!</h3></center>";
+	} else {
 
-        if(!$result || $result->num_rows == 0) echo "<center><h3>No comments yet...</h3></center>";
+		$result = $conn->query("SELECT id, csid, name, date, content FROM comments WHERE csid = " . $_GET["id"] . " ORDER BY date DESC;");
 
-        else while($row = $result->fetch_assoc()) {
+		if(!$result || $result->num_rows == 0) echo "<center><h3>No comments yet...</h3></center>";
+
+		else while($row = $result->fetch_assoc()) {
       ?>
       <div class="comment" internal_id="<?php echo $row['id'] ?>">
         <img src="./res/pfp.png" class="comment_pfp">
@@ -26,5 +31,5 @@
           <?php echo htmlentities($row["content"]) ?>
         </div>
       </div>
-    <?php } } else echo "<center><h3>Could not load comments!</h3></center>"; ?>
+    <?php } } } else echo "<center><h3>Could not load comments!</h3></center>"; ?>
     </div>

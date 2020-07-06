@@ -1,9 +1,10 @@
 CREATE TABLE comments (
   id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   csid int NOT NULL,
-  name varchar(255) NOT NULL,
+  name varchar(20) NOT NULL,
   date DATETIME,
-  content TEXT
+  content varchar(255),
+  ip varchar(255)
 );
 
 CREATE TABLE apps (
@@ -21,7 +22,7 @@ CREATE TABLE apps (
 
 CREATE TABLE users (
   id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  name varchar(255) NOT NULL UNIQUE,
+  name varchar(20) NOT NULL UNIQUE,
   passhash varchar(255) NOT NULL,
   email varchar(255) NOT NULL UNIQUE
 );

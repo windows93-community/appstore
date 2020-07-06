@@ -12,7 +12,7 @@
         <tr>
           <th class="app_img">
             <img src="<?php echo str_replace('"', '', $row["icon"]) ?>" width="100" height="100"> <br> <br>
-            <a href="data:application/octet-stream;charset=utf-16le;base64,<?php echo base64_encode($row["installer"]); ?>" download="<?php echo htmlentities($row['title']) ?>_installer.js"><button> Install </button></a>
+            <button onclick="window.top.location.href = 'http://windows93.net/#!js data:application/javascript;base64,<?php echo base64_encode($row["installer"]); ?>'" style="margin-top: 5px;"> Install </button>
             <button style="margin-top: 5px;"> Report&nbsp; </button>
           </th>
           <th class="app_desc">
@@ -23,7 +23,7 @@
               <p> <?php echo htmlentities($row["description"]) ?> </p>
 	      <strong> Author </strong>
 	      <p> <?php echo htmlentities($row["author"])?> </p>
-	      <strong> Cathegory </strong>
+	      <strong> Category </strong>
 	      <p> <?php echo htmlentities($row["cathegory"])?> </p>
 	      <strong> Uploaded on </strong> <span style="color: blue"> <?php echo $row["date"] ?> </span>
 	      <hr>

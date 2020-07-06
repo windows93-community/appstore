@@ -15,9 +15,13 @@ function search_query($field, $text) {
 $q = "SELECT id, title, icon, author, date FROM apps LIMIT 40";
 
 if(isset($_GET["search"])) {
-  $q = 'SELECT id, title, icon, author, date FROM apps WHERE ' .
+  $q = 'SELECT id, cathegory, title, icon, author, date FROM apps WHERE (' .
     search_query("title", $_GET["search"]) . ' OR ' .
-    search_query("author", $_GET["search"]) . ';';
+    search_query("author", $_GET["search"]) . ')';
+
+  if(isset($_GET['category']) && $_GET['category'] != 'all') $q .= " AND cathegory = '" . str_replace("'", "", $_GET['category']) . "'";
+
+  $q .= ' LIMIT 40;';
 }
 
 $data = $conn->query($q);
